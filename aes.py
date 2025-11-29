@@ -1,0 +1,23 @@
+#!/usr/bin/python3
+
+from Crypto.Cipher import AES
+from Crypto.Util.Padding import pad
+from Crypto.Random import get_random_bytes
+
+# flag = open("/flag", "rb").read()
+
+# key = get_random_bytes(16)
+# cipher = AES.new(key=key, mode=AES.MODE_ECB)
+# ciphertext = cipher.encrypt(pad(flag, cipher.block_size))
+
+# print(f"AES Key (hex): {key.hex()}")
+
+# print(f"Flag Ciphertext (hex): {ciphertext.hex()}")
+
+
+
+key_hex = input()
+flag_cipher_hex = input()
+
+cipher = AES.new(bytes.fromhex(key_hex), mode=AES.MODE_ECB)
+print(cipher.decrypt(bytes.fromhex(flag_cipher_hex)))
